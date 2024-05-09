@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 trait ShopifyTrait {
 
+    public $token = 'env("SHOPIFY_ACCESS_TOKEN")';
+
     public function createCustomer($CustomerData, $key,$pwd,$dmn)
     {
         $client = new Client();
@@ -17,7 +19,7 @@ trait ShopifyTrait {
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
-                'X-Shopify-Access-Token' => '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'
+                'X-Shopify-Access-Token' => $this->token
             ]
         ]); // Url of your choosing
         $res_body = $request->getBody()->getContents();
@@ -40,7 +42,7 @@ trait ShopifyTrait {
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
-                'X-Shopify-Access-Token' => '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'
+                'X-Shopify-Access-Token' => $this->token
             ]
         ]); // Url of your choosing
         $res_body = $request->getBody()->getContents();
@@ -62,7 +64,7 @@ trait ShopifyTrait {
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
-                'X-Shopify-Access-Token' => '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'
+                'X-Shopify-Access-Token' => $this->token
             ]
         ]); // Url of your choosing
         $res_body = $request->getBody()->getContents();
@@ -102,7 +104,7 @@ trait ShopifyTrait {
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
-                'X-Shopify-Access-Token' => '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'
+                'X-Shopify-Access-Token' => $this->token
             ]
         ]); // Url of your choosing
         $res_body = $request->getBody()->getContents();
